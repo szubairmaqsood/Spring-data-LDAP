@@ -21,6 +21,9 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("com.unboundid:unboundid-ldapsdk:5.1.4")
+	implementation("org.springframework.ldap:spring-ldap-core:2.3.4.RELEASE")
+	implementation("org.springframework.security:spring-security-ldap:5.3.7.RELEASE")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 }
