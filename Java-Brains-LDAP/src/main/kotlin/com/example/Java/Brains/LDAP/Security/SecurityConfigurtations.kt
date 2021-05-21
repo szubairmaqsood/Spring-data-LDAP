@@ -10,15 +10,15 @@ import org.springframework.security.crypto.password.LdapShaPasswordEncoder
 class SecurityConfigurtations:WebSecurityConfigurerAdapter() {
 
     override fun configure(auth: AuthenticationManagerBuilder?) {
-        auth?.ldapAuthentication()
-                ?.userDnPatterns("uid={0},ou=people")
-                ?.groupSearchBase("ou=groups")
+        auth?.ldapAuthentication()                                 // Authentication manager is mentioning required ldap configurations
+                ?.userDnPatterns("uid={0},ou=people")  //{} it idynamic filled with entry from user
+                ?.groupSearchBase("ou=groups")       //it is under group
                 ?.contextSource()
-                ?.url("ldap://localhost:8389/dc=springframework,dc=org")
+                ?.url("ldap://localhost:8389/dc=springframework,dc=org") //following is port and root of ldap
                 ?.and()
-                ?.passwordCompare()
-                ?.passwordEncoder(LdapShaPasswordEncoder())
-                ?.passwordAttribute("userPassword")
+                ?.passwordCompare()                                        //password compare
+                ?.passwordEncoder(LdapShaPasswordEncoder())                //following password encoder
+                ?.passwordAttribute("userPassword")         // the property we need
     }
 
 
